@@ -1,27 +1,43 @@
 import React from "react";
-//import components here
-import { Routes, Route } from 'react-router-dom';
+import victory from 'victory';
+import {
+    VictoryBar, 
+    VictoryChart, 
+    VictoryLine,
+    VictoryPie,
+} from 'victory';
 
 function App(){
 
     return(
         
-       <div id='main'>
-            <div className='column container'>
-                <div id='header'>
-                    <h1>Title of Project</h1>
-                    {/* <Navbar/> */}
-                </div>
+            <div className='App'>
+                <h1>The Most Basic Example</h1>
+                <VictoryChart>
+                    <VictoryBar
+                        style={{ data: { fill: '#6db65b'}}}
+                        data={[
+                            { x:'lizard', y: 1234 },
+                            { x:'snake', y: 2048 },
+                            { x: 'crocodile', y: 2600 },
+                            { x: 'alligator', y: 9000 },
+                        ]}
+                    />
+                </VictoryChart>
+                <VictoryChart>
+                    <VictoryLine/>
+                </VictoryChart>
+                <VictoryPie
+                    colorScale={[ '#008f68', '#6db65b', '4aae9b', 'efbb35']}
+                    data={[
+                        { x: 'lizard', y: 1234 },
+                        { x: 'snake', y: 2048 },
+                        { x: 'crocodile', y: 2600 },
+                        { x: 'alligator', y: 9000 },
+                    ]}
+                />
             </div>
-
-            {/* <Routes>
-                <Route path='/path1' element={<path1element/>}/>
-                <Route path='/path2' element={<path2element/>}/>
-                <Route path='/path1/:path1Id/' element={<path1childelement/>}/>
-                <Route path='/path2/:path2Id/' element={<path2childelement/>}/>
-                <Route path='/' element={<whateverimakehome/>}/>
-            </Routes> */}
-       </div>
+        
        
     )
 }
